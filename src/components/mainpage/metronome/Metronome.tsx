@@ -10,14 +10,14 @@ export default function Metronome() {
         {Array.from({ length: scale1 }).map((_, i) => (
           <div
             key={i}
-            className="w-12 h-12 bg-[#D9D9D9] rounded-full"
+            className="w-10 h-10 bg-[#D9D9D9] rounded-full"
           ></div>
         ))}
       </div>
 
       <div className="mt-6">
-        <div className="w-76 h-2 bg-[#D9D9D9] rounded-full"/>
-        <div className="w-7 h-7 bg-[#BABABA] rounded-full relative bottom-4.5"/>
+        <div className="w-76 h-1 bg-[#D9D9D9] rounded-full"/>
+        <div className="w-4 h-4 bg-[#BABABA] rounded-full relative bottom-2.5"/>
       </div>
     </div>
   );

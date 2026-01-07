@@ -1,0 +1,35 @@
+#BPMrange {
+  appearance: none;
+  accent-color: #87cefa;
+  background-color: #D9D9D9;
+  border-radius: 999px;
+}
+
+#BPMrange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2em;
+  height: 2em;
+  border-radius: 999px;
+  background: #87cefa;
+  transition: 300ms;
+}
+
+#BPMrange::-moz-range-thumb {
+  width: 2em;
+  height: 2em;
+  border-radius: 999px;
+  background: #87cefa;
+  transition: 300ms;
+}
+
+#BPMrange::-webkit-slider-thumb:hover {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+#BPMrange::-moz-range-thumb:hover {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+

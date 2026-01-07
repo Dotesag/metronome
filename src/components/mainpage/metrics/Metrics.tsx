@@ -3,7 +3,7 @@ import { MetronomeContext } from "components/mainpage/Mainpage";
 
 export default function Metrics() {
   const { BPM } = useContext(MetronomeContext);
-  const [tempo, setTempo] = useState("");
+  const [tempo, setTempo] = useState("Moderato");
 
   const tempos = {
     40: "Grave",
@@ -35,9 +35,9 @@ export default function Metrics() {
 
   return (
     <div className="flex flex-col items-center w-full ">
-      <p className="text-[10em]/30 font-medium">{BPM}</p>
-      <p className="text-2xl font-medium text-[#3F3F3F]">BPM</p>
-      <p className="text-2xl pt-1 text-[#636363]">{tempo}</p>
+      <p className="text-[10em]/29 font-medium">{BPM}</p>
+      <p className="text-xl font-medium text-[#3F3F3F]">BPM</p>
+      <p className="text-md text-[#636363]">{tempo}</p>
     </div>
   );
 }
