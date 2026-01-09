@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { MetronomeContext } from "components/mainpage/Mainpage";
 
 export default function RangeBPM() {
-  const { BPM, setBPM } = useContext(MetronomeContext);
+  const { BPM, setBPM, setIsSliderHolded } = useContext(MetronomeContext);
   const maxBPM = 250;
 
   const handleMinus = () => {
@@ -20,7 +20,7 @@ export default function RangeBPM() {
   };
 
   return (
-    <div className="flex w-full max-w-256 justify-between items-center gap-8">
+    <div className="flex w-full max-w-260 justify-between items-center gap-8">
       <button
         onClick={handleMinus}
         className="w-12 h-12  bg-[#87CEFA] rounded-full flex justify-center items-center shrink-0 cursor-pointer"

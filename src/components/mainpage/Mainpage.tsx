@@ -8,7 +8,7 @@ import Panel from "./panel/Panel";
 export const MetronomeContext = createContext(undefined);
 
 export default function Main() {
-  const [BPM, setBPM] = useState(90);
+  const [BPM, setBPM] = useState(120);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playingTime, setPlayingTime] = useState(0);
   const [scale1, setScale1] = useState(4);
@@ -17,7 +17,14 @@ export default function Main() {
   return (
     <div className="flex flex-col pt-24">
       <MetronomeContext.Provider
-        value={{ BPM, setBPM, isPlaying, setIsPlaying, scale1, playingTime }}
+        value={{
+          BPM,
+          setBPM,
+          isPlaying,
+          setIsPlaying,
+          scale1,
+          playingTime,
+        }}
       >
         <Metrics />
         <Metronome />
