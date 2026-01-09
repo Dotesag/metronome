@@ -38,7 +38,7 @@ export default function Metronome() {
     }
 
     const interval = 60000 / BPM;
-    
+
     intervalRef.current = setInterval(() => {
       play();
     }, interval);
@@ -52,9 +52,8 @@ export default function Metronome() {
 
   useEffect(() => {
     if (!isPlaying) {
-      setTick(0); 
-    }
-    else {
+      setTick(0);
+    } else {
       play();
     }
   }, [isPlaying]);
@@ -88,8 +87,16 @@ export default function Metronome() {
       </div>
 
       <div className="mt-6">
-        <div className="w-76 h-1 bg-[#D9D9D9] rounded-full" />
-        <div className="w-4 h-4 bg-[#BABABA] rounded-full relative bottom-2.5" />
+        <div className="w-76 h-1 bg-[#D9D9D9] rounded-full translate-y-1/2" />
+        <div
+          className={`w-5 h-5 bg-[#1E90FF] rounded-full relative -translate-y-1/2 ease-linear`}
+          style={{
+            left: tick % 2 ? "calc(100% - 1rem)" : "0px",
+            transition: `left ${
+              isPlaying ? `${(60 / BPM) * 1000}ms` : "0ms"
+            } linear`,
+          }}
+        />
       </div>
     </div>
   );
