@@ -91,7 +91,7 @@ export default function Metronome() {
         <div
           className={`w-5 h-5 bg-[#1E90FF] rounded-full relative -translate-y-1/2 ease-linear`}
           style={{
-            left: tick % 2 ? "calc(100% - 1rem)" : "0px",
+            left: tick % 2 ? "calc(100% - var(--spacing) * 5)" : "0px",
             transition: `left ${
               isPlaying ? `${(60 / BPM) * 1000}ms` : "0ms"
             } linear`,
