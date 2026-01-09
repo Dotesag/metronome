@@ -89,11 +89,11 @@ export default function Metronome() {
       <div className="mt-6">
         <div className="w-76 h-1 bg-[#D9D9D9] rounded-full translate-y-1/2" />
         <div
-          className={`w-5 h-5 bg-[#1E90FF] rounded-full relative -translate-y-1/2 ease-linear`}
+          className={`w-5 h-5 bg-[#1e8fff] rounded-full relative -translate-y-1/2`}
           style={{
-            left: tick % 2 ? "calc(100% - var(--spacing) * 5)" : "0px",
-            transition: `left ${
-              isPlaying ? `${(60 / BPM) * 1000}ms` : "0ms"
+            left: tick % 2 && isPlaying ? "calc(100% - var(--spacing) * 5)" : "0px",
+            transition: `${
+              isPlaying ? `${(60 / BPM) * 1000}ms` : "null"
             } linear`,
           }}
         />
