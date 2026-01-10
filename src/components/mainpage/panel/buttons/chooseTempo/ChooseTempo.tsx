@@ -6,12 +6,13 @@ export default function ChooseTempo() {
   const lastClickTime = useRef<number | null>(null);
 
   const handleClick = () => {
-    if (!lastClickTime) {
+    var period = Math.floor(
+      60 / ((performance.now() - lastClickTime.current) / 1000)
+    );
+    if (!lastClickTime || period < 1) {
       lastClickTime.current = performance.now();
     } else {
-      setBPM(
-        Math.min(Math.floor(60 / ((performance.now() - lastClickTime.current) / 1000)), 250)
-      );
+      setBPM(Math.min(period, 250));
       lastClickTime.current = performance.now();
     }
   };
