@@ -23,7 +23,11 @@ export default function Main() {
           isPlaying,
           setIsPlaying,
           scale1,
+          setScale1,
+          scale2,
+          setScale2,
           playingTime,
+          setPlayingTime,
         }}
       >
         <Metrics />

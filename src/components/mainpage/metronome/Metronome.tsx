@@ -3,7 +3,7 @@ import { MetronomeContext } from "components/mainpage/Mainpage";
 
 export default function Metronome() {
   const { scale1, BPM, isPlaying } = useContext(MetronomeContext);
-  const [tick, setTick] = useState(0);
+  const [tick, setTick] = useState(-1);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -52,7 +52,7 @@ export default function Metronome() {
 
   useEffect(() => {
     if (!isPlaying) {
-      setTick(0);
+      setTick(-1);
     } else {
       play();
     }
@@ -67,7 +67,7 @@ export default function Metronome() {
   }, []);
 
   const isActive = (i, scale1) => {
-    if (i == tick % scale1) {
+    if (i == tick % scale1 && tick != -1) {
       return true;
     }
     return false;
@@ -89,9 +89,9 @@ export default function Metronome() {
       <div className="mt-6">
         <div className="w-76 h-1 bg-[#D9D9D9] rounded-full translate-y-1/2" />
         <div
-          className={`w-5 h-5 bg-[#1e8fff] rounded-full relative -translate-y-1/2`}
+          className={`w-7 h-7 bg-[#1e8fff] rounded-full relative -translate-y-1/2`}
           style={{
-            left: tick % 2 && isPlaying ? "calc(100% - var(--spacing) * 5)" : "0px",
+            left: !(tick % 2) && isPlaying ? "calc(100% - var(--spacing) * 7)" : "0px",
             transition: `${
               isPlaying ? `${(60 / BPM) * 1000}ms` : "null"
             } linear`,
