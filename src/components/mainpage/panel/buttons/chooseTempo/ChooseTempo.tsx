@@ -18,8 +18,8 @@ export default function ChooseTempo() {
   };
 
   return (
-    <button className="panelButton" onClick={handleClick}>
-      Подобрать темп
+    <button className="panelButton cursor-pointer" onClick={handleClick}>
+      Выбрать темп
     </button>
   );
 }

@@ -32,7 +32,7 @@ export default function Stopwatch() {
 
   return (
     <button
-      className="panelButton flex flex-col items-center"
+      className="panelButton flex flex-col items-center cursor-pointer"
       onClick={() => setIsPlaying(!isPlaying)}
     >
       <p
