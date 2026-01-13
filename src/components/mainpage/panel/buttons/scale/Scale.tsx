@@ -1,11 +1,9 @@
 import { useContext, useState } from "react";
 import { MetronomeContext } from "components/mainpage/Mainpage";
-import WheelPicker from "react-simple-wheel-picker";
+import WheelPicker from "./wheelPicker/WheelPicker";
 
-const dataScale1 = Array.from({ length: 16 }, (_, i) => ({
-  id: String(i + 1),
-  value: String(i + 1),
-}));
+const dataScale1 = Array.from({ length: 16 }, (_, i) => i + 1);
+const dataScale2 = Array.from({ length: 4 }, (_, i) => 2 ** i);
 
 export default function Scale() {
   const { scale1, setScale1, scale2, setScale2 } = useContext(MetronomeContext);
@@ -49,22 +47,16 @@ export default function Scale() {
           <p>Выберите размер</p>
           <div className="flex w-3/5 justify-around items-center">
             <WheelPicker
-              data={dataScale1}
-              onChange={handleChangeScale1}
-              height={150}
-              width={100}
-              titleText="Enter value same as aria-label"
-              itemHeight={30}
-              selectedID={dataScale1[0].id}
-              color="#ccc"
-              activeColor="#333"
+              items={dataScale1}
+              activeElem={scale1}
+              changeFunc={setScale1}
             />
             <p>/</p>
-            <div className="flex h-20 flex-col">
-              <button>+</button>
-              {scale2}
-              <button>-</button>
-            </div>
+            <WheelPicker
+              items={dataScale2}
+              activeElem={scale2}
+              changeFunc={setScale2}
+            />
           </div>
           <button onClick={handleClose} className="cursor-pointer">
             Готово
