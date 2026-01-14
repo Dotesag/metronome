@@ -23,7 +23,7 @@ export default function Scale() {
   };
 
   return (
-    <div className={`relative bg-[#f5f5f5] rounded-full text-lg w-50 h-20 `}>
+    <div className={`relative bg-[#f5f5f5] rounded-full text-lg sm:w-50 w-45 h-20 `}>
       {!chooseScale && (
         <button
           className="p-6 flex justify-around w-full cursor-pointer"
@@ -36,7 +36,7 @@ export default function Scale() {
         </button>
       )}
       <div
-        className={`absolute left-0 top-0 bg-[#f5f5f5] rounded-[2.5rem] w-50 overflow-hidden duration-250 
+        className={`absolute left-0 top-0 bg-[#f5f5f5] rounded-[2.5rem] sm:w-50 w-45 overflow-hidden duration-250 
           ${
             chooseScale
               ? "h-47 opacity-100 pointer-events-auto"

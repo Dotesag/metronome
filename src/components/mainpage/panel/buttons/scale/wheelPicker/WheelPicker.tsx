@@ -81,10 +81,13 @@ export default function WheelPicker({
 
   return (
     <div
-      className="h-21 overflow-hidden"
+      className="h-21 overflow-hidden relative"
       onPointerDown={beginDragging}
       style={{ touchAction: "none" }}
     >
+      <div className="pointer-events-none top-0 absolute h-9 w-full bg-linear-to-b from-[#f5f5f5] to-transparent z-10"></div>
+      <div className="pointer-events-none bottom-0 absolute h-9 w-full bg-linear-to-t from-[#f5f5f5] to-transparent z-10"></div>
+
       <div
         style={{
           transform: `translateY(calc(-${offset}px + ${ITEM_HEIGHT}px))`,
@@ -94,7 +97,7 @@ export default function WheelPicker({
         {items.map((item, index) => (
           <p
             key={index}
-            className="h-7 w-7 flex justify-center items-center cursor-pointer noselect"
+            className="h-7 w-7 flex justify-center items-center cursor-pointer noselect text-base"
             onClick={() => {
               if (!didDrag) {
                 setActive(index);

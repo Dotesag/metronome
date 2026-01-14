@@ -20,7 +20,7 @@ export default function RangeBPM() {
   };
 
   return (
-    <div className="flex w-full max-w-260 justify-between items-center gap-8">
+    <div className="flex w-full max-w-260 justify-between items-center gap-8 px-6">
       <button
         onClick={handleMinus}
         className="w-12 h-12  bg-[#87CEFA] rounded-full flex justify-center items-center shrink-0 cursor-pointer"
@@ -28,7 +28,7 @@ export default function RangeBPM() {
         <img src="./icons/minus.svg" className="w-4.5" alt="-" />
       </button>
 
-      <input
+      <input 
         id="BPMrange"
         type="range"
         value={BPM}
