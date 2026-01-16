@@ -35,7 +35,7 @@ export default function Metrics() {
 
   return (
     <div className="flex flex-col items-center w-full ">
-      <p className="text-[10em]/29 font-medium">{BPM}</p>
+      <p className="sm:text-[10em]/29 text-[8em]/23 font-medium">{BPM}</p>
       <p className="text-xl font-medium text-[#3F3F3F]">BPM</p>
       <p className="text-md text-[#636363]">{tempo}</p>
     </div>

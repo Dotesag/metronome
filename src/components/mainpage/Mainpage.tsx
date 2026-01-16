@@ -15,7 +15,7 @@ export default function Main() {
   const [scale2, setScale2] = useState(4);
 
   return (
-    <div className="flex flex-col pt-24">
+    <div className="flex flex-col sm:pt-24 pt-15">
       <MetronomeContext.Provider
         value={{
           BPM,
