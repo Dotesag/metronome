@@ -75,7 +75,7 @@ export default function Metronome() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="flex justify-center mt-5 gap-7 flex-wrap">
+      <div className="flex justify-center mt-5 gap-7 w-130 flex-wrap">
         {Array.from({ length: scale1 }).map((_, i) => (
           <div
             key={i}

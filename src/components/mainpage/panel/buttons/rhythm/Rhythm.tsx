@@ -1,8 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MetronomeContext } from "components/mainpage/Mainpage";
 
 export default function Rhythm() {
+  const { scale2 } = useContext(MetronomeContext);
   const [chooseRhythm, setChooseRhythm] = useState(false);
+  const [images, setImages] = useState([]);
 
   const handleOpen = () => {
     setChooseRhythm(true);
@@ -11,6 +13,12 @@ export default function Rhythm() {
   const handleClose = () => {
     setChooseRhythm(false);
   };
+
+  useEffect(() => {
+    fetch(`api/notes_images?folder=${scale2}`)
+      .then((res) => res.json())
+      .then((data) => setImages(data));
+  }, [scale2]);
 
   return (
     <div
@@ -34,7 +42,11 @@ export default function Rhythm() {
       >
         <div className="h-full py-5 flex flex-col items-center justify-between">
           <p>Выберите ритм</p>
-          <div className="flex w-3/5 justify-around items-center"></div>
+          <div className="flex w-3/5 justify-around items-center">
+            {images.map((img, ind) => (
+              <img key={ind} src={"./icons/notes/" + scale2 + "/" + img} className="w-12"></img>
+            ))}
+          </div>
           <button onClick={handleClose} className="cursor-pointer">
             Готово
           </button>
