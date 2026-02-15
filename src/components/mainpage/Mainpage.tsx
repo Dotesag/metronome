@@ -13,6 +13,7 @@ export default function Main() {
   const [playingTime, setPlayingTime] = useState(0);
   const [scale1, setScale1] = useState(4);
   const [scale2, setScale2] = useState(4);
+  const [rhythm, setRhythm] = useState(1)
 
   return (
     <div className="flex flex-col sm:pt-24 pt-15">
@@ -28,6 +29,8 @@ export default function Main() {
           setScale2,
           playingTime,
           setPlayingTime,
+          rhythm,
+          setRhythm
         }}
       >
         <Metrics />

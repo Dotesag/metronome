@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MetronomeContext } from "components/mainpage/Mainpage";
 
 export default function Rhythm() {
-  const { scale2 } = useContext(MetronomeContext);
+  const { scale2, rhythm, setRhythm } = useContext(MetronomeContext);
   const [chooseRhythm, setChooseRhythm] = useState(false);
   const [images, setImages] = useState([]);
 
@@ -14,6 +14,10 @@ export default function Rhythm() {
     setChooseRhythm(false);
   };
 
+  const handleChooseRhythm = (rhythm: number) => {
+    setRhythm(rhythm);
+  };
+
   useEffect(() => {
     fetch(`api/notes_images?folder=${scale2}`)
       .then((res) => res.json())
@@ -22,14 +26,18 @@ export default function Rhythm() {
 
   return (
     <div
-      className={`relative bg-[#f5f5f5] rounded-full text-lg sm:w-50 w-45 h-20 `}
+      className={`relative bg-[#f5f5f5] rounded-full text-lg sm:w-50 w-45 h-20  `}
     >
       {!chooseRhythm && (
         <button
-          className="p-6 flex justify-around w-full cursor-pointer rounded-full"
+          className="px-8.5 h-full flex justify-between items-center w-full cursor-pointer rounded-full"
           onClick={handleOpen}
         >
           <p>Ритм</p>
+          <img
+            src={"./icons/notes/" + scale2 + "/" + rhythm + ".png"}
+            className={`w-12 p-1`}
+          ></img>
         </button>
       )}
       <div
@@ -44,7 +52,14 @@ export default function Rhythm() {
           <p>Выберите ритм</p>
           <div className="flex w-3/5 justify-around items-center">
             {images.map((img, ind) => (
-              <img key={ind} src={"./icons/notes/" + scale2 + "/" + img} className="w-12"></img>
+              <img
+                key={ind}
+                src={"./icons/notes/" + scale2 + "/" + img}
+                className={`w-12 p-1 rounded-2xl duration-300 ${rhythm == Number(img.slice(0, -3)) ? "bg-[#87cefa]" : ""}`}
+                onClick={() => {
+                  handleChooseRhythm(Number(img.slice(0, -3)));
+                }}
+              ></img>
             ))}
           </div>
           <button onClick={handleClose} className="cursor-pointer">

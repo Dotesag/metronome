@@ -26,7 +26,7 @@ export default function Scale() {
     <div className={`relative bg-[#f5f5f5] rounded-full text-lg sm:w-50 w-45 h-20 `}>
       {!chooseScale && (
         <button
-          className="p-6 flex justify-around w-full cursor-pointer rounded-full"
+          className="px-8.5 h-full flex justify-between items-center w-full cursor-pointer rounded-full"
           onClick={handleOpen}
         >
           <p>Размер</p>

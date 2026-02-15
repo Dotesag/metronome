@@ -75,12 +75,12 @@ export default function Metronome() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="flex justify-center mt-5 gap-7 w-130 flex-wrap">
+      <div className="flex justify-center mt-5 gap-7 w-125 flex-wrap">
         {Array.from({ length: scale1 }).map((_, i) => (
           <div
             key={i}
             className={`w-10 h-10  rounded-full duration-300 ${
-              isActive(i, scale1) ? "bg-[#1E90FF]" : "bg-[#D9D9D9]"
+              isActive(i, scale1) ? "bg-[#87cefa]" : "bg-[#D9D9D9]"
             } `}
           ></div>
         ))}
@@ -89,7 +89,7 @@ export default function Metronome() {
       <div className="mt-6">
         <div className="w-76 h-1 bg-[#D9D9D9] rounded-full translate-y-1/2" />
         <div
-          className={`w-7 h-7 bg-[#1e8fff] rounded-full relative -translate-y-1/2`}
+          className={`w-7 h-7 bg-[#87cefa] rounded-full relative -translate-y-1/2`}
           style={{
             left:
               !(tick % 2) && isPlaying
