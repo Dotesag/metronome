@@ -55,7 +55,7 @@ export default function Rhythm() {
               <img
                 key={ind}
                 src={"./icons/notes/" + scale2 + "/" + img}
-                className={`w-12 p-1 rounded-2xl duration-300 ${rhythm == Number(img.slice(0, -3)) ? "bg-[#87cefa]" : ""}`}
+                className={`w-12 p-1 rounded-2xl duration-300 ${rhythm == Number(img.slice(0, -3)) ? "bg-[#87cefa] cursor-default" : "cursor-pointer "}`}
                 onClick={() => {
                   handleChooseRhythm(Number(img.slice(0, -3)));
                 }}

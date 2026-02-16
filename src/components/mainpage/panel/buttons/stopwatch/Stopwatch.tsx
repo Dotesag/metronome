@@ -23,7 +23,7 @@ export default function Stopwatch() {
     frameRef.current = requestAnimationFrame(() => {
       if (isPlaying) {
         setPlayingTime(
-          Math.floor((performance.now() - startTime.current) / 1000)
+          Math.floor((performance.now() - startTime.current) / 1000),
         );
       }
       tick();
@@ -32,22 +32,22 @@ export default function Stopwatch() {
 
   return (
     <button
-      className="panelButton flex flex-col items-center cursor-pointer"
+      className="panelButton flex flex-col items-center justify-center cursor-pointer "
       onClick={() => setIsPlaying(!isPlaying)}
     >
       <p
-        className={`font-semibold textl-2x duration-100 ${
-          isPlaying ? "-translate-y-1/2" : ""
+        className={`font-semibold text-xl duration-100 h-full ${
+          isPlaying ? "-translate-y-1/3" : ""
         }`}
       >
         {!isPlaying ? "Начать" : "Закончить"}
       </p>
-      {isPlaying && (
-        <p className="absolute translate-y-1/2">
-          {String(Math.floor(playingTime / 60)).padStart(2, "0")}:
-          {String(playingTime % 60).padStart(2, "0")}
-        </p>
-      )}
+      <p
+        className={`absolute ${isPlaying ? "translate-y-1/2 opacity-100" : " opacity-0"} duration-100`}
+      >
+        {String(Math.floor(playingTime / 60)).padStart(2, "0")}:
+        {String(playingTime % 60).padStart(2, "0")}
+      </p>
     </button>
   );
 }

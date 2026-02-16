@@ -19,19 +19,26 @@ export default function ChooseTempo() {
 
     const btn = btnRef.current;
     btn.getAnimations().forEach((anim) => anim.cancel());
-    btn.animate([
-      {
-        width: "0px",
-        height: "0px",
-      },
-      {
-        width: "230px",
-        height: "230px",
-      }
-    ],
+    btn.animate(
+      [
+        {
+          width: "0px",
+          height: "0px",
+          opacity: 1,
+        },
+        {
+          width: "230px",
+          height: "230px",
+          opacity: 1,
+        },
+        {
+          opacity: 0,
+        },
+      ],
       {
         duration: 140,
-      },);
+      },
+    );
   };
 
   return (
@@ -40,7 +47,7 @@ export default function ChooseTempo() {
       onClick={handleClick}
     >
       <p className="relative z-111">Выбрать темп</p>
-      <div ref={btnRef} className={`absolute bg-[#ebebeb] rounded-full `}></div>
+      <div ref={btnRef} className={`absolute bg-[#eeeeee] rounded-full `}></div>
     </button>
   );
 }
